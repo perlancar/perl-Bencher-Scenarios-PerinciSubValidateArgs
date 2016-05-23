@@ -5,7 +5,6 @@ package Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingRinciValidat
 
 use strict;
 use warnings;
-use Perinci::Sub::ValidateArgs;
 
 use Exporter qw(import);
 our @EXPORT_OK = qw(foo);
@@ -27,6 +26,10 @@ $SPEC{foo} = {
     'x.perinci.sub.wrapper.disable_validate_args' => 1,
 };
 sub foo {
+    #IFUNBUILT
+    die "Can only be used in built version";
+    #END IFUNBUILT
+
     my %args = @_; # VALIDATE_ARGS
     [200, "OK"];
 }

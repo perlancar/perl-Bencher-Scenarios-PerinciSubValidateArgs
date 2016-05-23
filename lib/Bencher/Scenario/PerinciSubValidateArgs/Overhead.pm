@@ -35,11 +35,20 @@ our $scenario = {
             name => 'PSV',
             fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingPSV::foo(a1=><a1>, a2=><a2>)',
         },
+        {
+            name => 'Type::Tiny',
+            fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingTypeTiny::foo(a1=><a1>, a2=><a2>)',
+        },
     ],
     datasets => [
-        {args => {a1=>1, a2=>1}},
+        {args => {a1=>1, a2=>[1]}},
     ],
 };
 
 1;
 # ABSTRACT:
+
+=head1 BENCHMARK NOTES
+
+C<manual> is faster than C<Rinci::Validate>, which is slightly faster than
+C<Type::Tiny>, which is faster than C<PSV> and C<manual+dsah>.
