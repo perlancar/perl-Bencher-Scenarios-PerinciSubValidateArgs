@@ -1,4 +1,4 @@
-package Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingPSV;
+package Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingRinciValidate;
 
 # DATE
 # VERSION
@@ -24,12 +24,12 @@ $SPEC{foo} = {
             default => [1],
         },
     },
+    'x.perinci.sub.wrapper.disable_validate_args' => 1,
 };
 sub foo {
-    my %args = @_;
-    if (my $err = validate_args(\%args)) { return $err }
+    my %args = @_; # VALIDATE_ARGS
     [200, "OK"];
 }
 
 1;
-# ABSTRACT: An example module that uses Perinci::Sub::ValidateArgs
+# ABSTRACT: An example module that uses Rinci::Validate dzil plugin

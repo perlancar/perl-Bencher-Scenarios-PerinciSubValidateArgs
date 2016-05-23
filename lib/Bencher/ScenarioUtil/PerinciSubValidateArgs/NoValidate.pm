@@ -1,11 +1,13 @@
-package Bencher::ScenarioUtil::PerinciSubValidateArgs::UsesPSV;
+package Bencher::ScenarioUtil::PerinciSubValidateArgs::NoValidate;
 
 # DATE
 # VERSION
 
 use strict;
 use warnings;
-use Perinci::Sub::ValidateArgs;
+
+use Exporter qw(import);
+our @EXPORT_OK = qw(foo);
 
 our %SPEC;
 
@@ -18,15 +20,14 @@ $SPEC{foo} = {
         },
         a2 => {
             schema => [array => of=>'int*'],
-            default => 'peach',
+            default => [1],
         },
     },
 };
 sub foo {
     my %args = @_;
-    if (my $err = validate_args(\%args)) { return $err }
     [200, "OK"];
 }
 
 1;
-# ABSTRACT: An example module that uses Perinci::Sub::ValidateArgs
+# ABSTRACT: An example module that does no validation
