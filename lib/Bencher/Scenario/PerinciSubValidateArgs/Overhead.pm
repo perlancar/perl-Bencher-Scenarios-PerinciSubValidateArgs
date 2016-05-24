@@ -50,5 +50,10 @@ our $scenario = {
 
 =head1 BENCHMARK NOTES
 
-C<manual> is faster than C<Rinci::Validate>, which is slightly faster than
-C<Type::Tiny>, which is faster than C<PSV> and C<manual+dsah>.
+The participants (except C<none>, obviously) all should be in the same order of
+magnitude because both L<Data::Sah> and L<Type::Tiny> work by generating Perl
+code validator and then compiling (C<eval()>) them then execute the compiled
+result. The differences are in the details: how the generated Perl code is
+structured, what the code for the type checks are (e.g. checking for number can
+be done with a regex or L<Scalar::Util>'s C<looks_like_number()> or
+L<Scalar::Util::Numeric>, and so on).
