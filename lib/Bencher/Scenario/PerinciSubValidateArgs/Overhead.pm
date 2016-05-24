@@ -7,10 +7,6 @@ use 5.010001;
 use strict;
 use warnings;
 
-# initialize the validators
-use Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingPSV;
-Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingPSV::foo(a1=>1, a2=>1);
-
 our $scenario = {
     summary => 'Measure validation overhead',
     participants => [
