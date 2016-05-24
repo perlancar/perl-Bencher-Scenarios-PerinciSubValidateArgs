@@ -1,5 +1,16 @@
 Revision history for Bencher-Scenarios-PerinciSubValidateArgs
 
+0.003   2016-05-24 (PERLANCAR)
+
+	- Add participants: Perinci::Sub::Wrapper (PSW) and
+	  Dist::Zilla::Plugin::Rinci::Wrap (DZPRW).
+
+	- No need to initialize because Dumbbench will throw out the
+	  outliers results.
+
+	- Revise notes.
+
+
 0.002   2016-05-24 (PERLANCAR)
 
         - Add participant: Type::Tiny.
