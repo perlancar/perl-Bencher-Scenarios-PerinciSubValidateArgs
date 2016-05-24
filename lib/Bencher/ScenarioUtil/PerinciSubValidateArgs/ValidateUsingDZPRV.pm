@@ -1,4 +1,4 @@
-package Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingRinciValidate;
+package Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingDZPRV;
 
 # DATE
 # VERSION

@@ -25,7 +25,6 @@ $SPEC{foo} = {
     },
 };
 sub foo {
-    my %args = @_;
     [200, "OK"];
 }
 

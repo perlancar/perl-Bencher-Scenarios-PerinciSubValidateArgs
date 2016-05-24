@@ -23,9 +23,18 @@ our $scenario = {
             fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateManualDataSah::foo(a1=><a1>, a2=><a2>)',
         },
         {
-            name => 'Rinci::Validate',
-            fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingRinciValidate::foo(a1=><a1>, a2=><a2>)',
+            name => 'DZPRV',
+            fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingDZPRV::foo(a1=><a1>, a2=><a2>)',
             include_by_default => 0,
+        },
+        {
+            name => 'DZPRW',
+            fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingDZPRW::foo_dzprw(a1=><a1>, a2=><a2>)',
+            include_by_default => 0,
+        },
+        {
+            name => 'PSW',
+            fcall_template => 'Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingPSW::foo(a1=><a1>, a2=><a2>)',
         },
         {
             name => 'PSV',
@@ -46,10 +55,14 @@ our $scenario = {
 
 =head1 BENCHMARK NOTES
 
-The participants (except C<none>, obviously) all should be in the same order of
-magnitude because both L<Data::Sah> and L<Type::Tiny> work by generating Perl
-code validator and then compiling (C<eval()>) them then execute the compiled
-result. The differences are in the details: how the generated Perl code is
-structured, what the code for the type checks are (e.g. checking for number can
-be done with a regex or L<Scalar::Util>'s C<looks_like_number()> or
-L<Scalar::Util::Numeric>, and so on).
+The Type::Tiny, Data::Sah, Perinci::Sub::ValidateArgs participants (except
+C<none>, obviously) all should be in the same order of magnitude because both
+L<Data::Sah> and L<Type::Tiny> work by generating Perl code validator and then
+compiling (C<eval()>) them then execute the compiled result. The differences are
+in the details: how the generated Perl code is structured, what the code for the
+type checks are (e.g. checking for number can be done with a regex or
+L<Scalar::Util>'s C<looks_like_number()> or L<Scalar::Util::Numeric>, and so
+on).
+
+Perinci::Sub::Wrapper (PSW) and Dist::Zilla::Plugin::Rinci::Wrap is slower
+because it does more.
