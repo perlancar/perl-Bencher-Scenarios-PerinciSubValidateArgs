@@ -3,9 +3,10 @@ package Bencher::ScenarioUtil::PerinciSubValidateArgs::ValidateUsingPSV;
 # DATE
 # VERSION
 
+use 5.010001;
 use strict;
 use warnings;
-use Perinci::Sub::ValidateArgs;
+use Perinci::Sub::ValidateArgs qw(gen_args_validator);
 
 use Exporter qw(import);
 our @EXPORT_OK = qw(foo);
@@ -26,8 +27,9 @@ $SPEC{foo} = {
     },
 };
 sub foo {
+    state $validator = gen_args_validator();
     my %args = @_;
-    if (my $err = validate_args(\%args)) { return $err }
+    if (my $err = $validator->(\%args)) { return $err }
     [200, "OK"];
 }
 
