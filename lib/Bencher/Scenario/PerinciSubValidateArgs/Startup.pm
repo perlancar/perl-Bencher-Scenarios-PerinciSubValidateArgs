@@ -12,7 +12,6 @@ our $scenario = {
     participants => [
         {
             name => 'perl',
-            summary => 'Load Perinci::Sub::ValidateArgs',
             perl_cmdline => ["-e1"],
         },
         {
