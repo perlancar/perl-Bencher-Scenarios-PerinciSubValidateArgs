@@ -1,5 +1,3 @@
-Revision history for Bencher-Scenarios-PerinciSubValidateArgs
-
 0.004   2016-05-25 (PERLANCAR)
 
 	- Adjust to Perinci::Sub::ValidateArgs 0.006.
